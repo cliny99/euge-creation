@@ -1,7 +1,6 @@
-export interface Product {
+export interface User {
     id?: number
     name: string
-    price: number
-    description?: string
-    imageUrl: string
+    email: string
+    password: string
 }
