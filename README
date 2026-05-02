@@ -1,0 +1,137 @@
+# 🛍️ Euge Creaciones - E-commerce
+
+## 📌 Descripción
+
+**Euge Creaciones** es una aplicación web de e-commerce enfocada en la venta de indumentaria.
+El sistema permite:
+
+* Visualizar productos desde el lado del cliente
+* Gestionar productos desde un panel administrativo
+* Contactar directamente por WhatsApp para concretar la compra (sin carrito)
+
+---
+
+## 🎯 Objetivo del proyecto
+
+Desarrollar una aplicación simple, escalable y mantenible, separando correctamente la lógica de negocio del resto del sistema.
+
+---
+
+## 🧱 Arquitectura
+
+El proyecto está dividido en tres capas principales:
+
+```
+/euge-creaciones
+  /front     → Aplicación cliente (React)
+  /back      → API REST (Express)
+  /domain    → Lógica de negocio (independiente de frameworks)
+```
+
+### 🔹 Frontend
+
+* Desarrollado con React y TypeScript
+* Muestra catálogo de productos
+* Panel administrativo para carga de productos
+
+### 🔹 Backend
+
+* API REST con Express y TypeScript
+* Manejo de rutas y controladores
+* Conexión a base de datos SQLite
+* Gestión de subida de imágenes
+
+### 🔹 Domain
+
+* Entidades del negocio (Product, etc.)
+* Casos de uso (crear producto, listar productos)
+* Interfaces (repositorios)
+* Sin dependencias externas (núcleo puro)
+
+---
+
+## 🛒 Modelo de compra
+
+El sistema **no incluye carrito de compras**.
+
+Cada producto tiene un botón de contacto que redirige a WhatsApp con un mensaje predefinido, permitiendo una interacción directa entre cliente y vendedor.
+
+---
+
+## 🗄️ Base de datos
+
+Se utiliza **SQLite** como base de datos local.
+
+Contiene la información de:
+
+* Productos
+* (Opcional futuro) Usuarios administradores
+
+---
+
+## 📸 Gestión de imágenes
+
+Las imágenes de los productos se almacenan localmente en el servidor dentro de una carpeta `/uploads`.
+
+---
+
+## 👤 Panel administrativo
+
+Permite al cliente:
+
+* Crear productos
+* Subir imágenes
+* Definir precios
+* Editar información (a futuro)
+
+⚠️ Pendiente:
+
+* Implementación de autenticación (login)
+
+---
+
+## ⚙️ Tecnologías utilizadas
+
+* TypeScript (frontend y backend)
+* React (frontend)
+* Express (backend)
+* SQLite (base de datos)
+
+---
+
+## 🚀 Funcionalidades principales
+
+### Cliente
+
+* Ver catálogo de productos
+* Ver detalles básicos
+* Contactar por WhatsApp
+
+### Administrador
+
+* Crear productos
+* Subir imágenes
+* Definir precios
+
+---
+
+## 📈 Escalabilidad futura
+
+Posibles mejoras:
+
+* Autenticación de usuarios
+* Panel admin más completo (edición / eliminación)
+* Integración con pasarela de pagos
+* Migración a base de datos más robusta (PostgreSQL)
+* Almacenamiento de imágenes en la nube
+
+---
+
+## 📌 Estado del proyecto
+
+🚧 En desarrollo
+
+---
+
+## 🤝 Autor
+
