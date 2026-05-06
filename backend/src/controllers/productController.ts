@@ -29,3 +29,13 @@ export const createProduct = (req: Request, res: Response) => {
     }
   );
 };
+
+export const getProducts = (req: Request, res: Response) => {
+  db.all(`SELECT * FROM products`, [], (err, rows) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+
+    res.json(rows);
+  });
+};
