@@ -1,42 +1,32 @@
-type Product = {
-  id: number;
-  name: string;
-  price: number;
-  imageUrl: string;
+// ProductList.tsx - CON imágenes que no desbordan
+type ProductListProps = {
+  product: {
+    id: number;
+    name: string;
+    price: number;
+    imageUrl: string;
+  };
 };
 
-export default function ProductList(product:Product ){
-    const whatsappLink = `https://wa.me/549XXXXXXXXX?text=Hola quiero este producto: ${product.name}`;
-   return (
-    <div className="group">
-      <div className="relative overflow-hidden rounded-3xl shadow-sm hover:shadow-lg transition">
-
-        <img
-          src={`http://localhost:3000${product.imageUrl}`}
+const ProductList = ({ product }: ProductListProps) => {
+  return (
+    <div className="group bg-white/30 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 w-full">
+      <div className="relative w-full pt-[100%]">
+        <img 
+          src={product.imageUrl} 
           alt={product.name}
-          className="w-full h-95 object-cover group-hover:scale-110 transition duration-500"
+          className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = "/placeholder-image.jpg";
+          }}
         />
-        <div className="absolute inset-0 bg-linear-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition" />
       </div>
-
-      <div className="mt-4 px-1">
-        <h2 className="text-sm font-medium text-neutral-800 tracking-wide">
-          {product.name}
-        </h2>
-
-        <p className="text-neutral-500 text-sm">
-          ${product.price}
-        </p>
-
-        <a
-          href={whatsappLink}
-          target="_blank"
-          className="text-xs text-[#f4c2c2] hover:underline mt-1 inline-block"
-        >
-          Consultar
-        </a>
+      <div className="p-4 text-center">
+        <h3 className="text-base sm:text-lg font-medium text-[#2C2418]">{product.name}</h3>
+        <p className="text-[#8B5A2B] text-lg sm:text-xl font-semibold mt-1">${product.price}</p>
       </div>
     </div>
   );
+};
 
-}
+export default ProductList;
